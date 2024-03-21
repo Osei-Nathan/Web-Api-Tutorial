@@ -1,0 +1,58 @@
+# Byte-compiled / optimized Python files
+*.pyc
+__pycache__/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+.Python
+
+# macOS
+.DS_Store
+
+# Python dotenv
+.env
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+__pycache__/
+media/
+static/
+
+# Django development server
+*.pid
+
+# Django local settings
+local_settings.py
+
+# Ignore migrations, as they can be rebuilt
+*/migrations/*
+
+# Django Rest Framework
+*.key
