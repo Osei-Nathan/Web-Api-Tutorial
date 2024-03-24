@@ -32,3 +32,5 @@ class UserSerializer(serializers.ModelSerializer):
         instance.style = validated_data.get('style', instance.style)
         instance.save()
         return instance
+    
+    owner = serializers.ReadOnlyField(source='owner.username')
