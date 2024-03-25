@@ -3,10 +3,11 @@ from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 from django.contrib.auth.models import User
 
 class SnippetSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')  # Add owner field here
+
     class Meta:
         model = Snippet
-        fields = ['id', 'title', 'code', 'linenos', 'language', 'style']
-
+        fields = ['id', 'title', 'code', 'linenos', 'language', 'style', 'owner']  # Include 'owner' in fields
 
 class UserSerializer(serializers.ModelSerializer):
     snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
@@ -32,5 +33,3 @@ class UserSerializer(serializers.ModelSerializer):
         instance.style = validated_data.get('style', instance.style)
         instance.save()
         return instance
-    
-    owner = serializers.ReadOnlyField(source='owner.username')
