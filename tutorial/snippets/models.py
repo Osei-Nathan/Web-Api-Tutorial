@@ -1,7 +1,6 @@
 from django.db import models
 from pygments.lexers import get_lexer_by_name, get_all_lexers
 from pygments.styles import get_all_styles
-from pygments.lexers import get_lexer_by_name
 from pygments.formatters.html import HtmlFormatter
 from pygments import highlight
 
@@ -34,9 +33,6 @@ class Snippet(models.Model):
         self.highlighted = highlight(self.code, lexer, formatter)
         super().save(*args, **kwargs)
 
-     
-
-owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
 
 
 # Create your models here.
