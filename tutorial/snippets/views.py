@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from snippets.serializers import UserSerializer
 from rest_framework import permissions
 from snippets.permissions import IsOwnerOrReadOnly
+from rest_framework.decorators import api_view
 
 
 class SnippetList(generics.ListCreateAPIView):
