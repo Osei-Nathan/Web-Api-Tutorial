@@ -2,7 +2,7 @@ from rest_framework import serializers
 from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 from django.contrib.auth.models import User
 
-class SnippetSerializer(serializers.ModelSerializer):
+class SnippetSerializer(serializers.HyperlinkedModelSerializer.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')  # Add owner field here
 
     class Meta:
