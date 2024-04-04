@@ -11,12 +11,12 @@ class SnippetSerializer(serializers.HyperlinkedModelSerializer.ModelSerializer):
         fields = ['url', 'id', 'highlight', 'owner',
                   'title', 'code', 'linenos', 'language', 'style']  # Include 'owner' in fields
 
-class UserSerializer(serializers.ModelSerializer):
-    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
+class UserSerializer(serializers.HyperlinkedModelSerializerModelSerializer):
+    snippets = serializers.HyperlinkedRelatedField(many=True, view_name='snippert-detail', read_only = True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'snippets']
+        fields = ['url', 'id', 'username', 'snippets']
 
     def create(self, validated_data):
         """
